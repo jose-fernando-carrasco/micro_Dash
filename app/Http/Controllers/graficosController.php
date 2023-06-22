@@ -12,137 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 class graficosController extends Controller
 {
-    //php artisan storage:link para el storage
-    //genera la imagen con grafico
-    /*
-    public function index(Request $request)
-    {
-        
-        // Datos del gráfico
-        $data = [
-            ['year' => 2019, 'total' => 100],
-            ['year' => 2020, 'total' => 150],
-            ['year' => 2021, 'total' => 200],
-        ];
-
-        // Configuración del gráfico
-        $width = 400;
-        $height = 300;
-        $padding = 20;
-
-        // Crear imagen en blanco
-        $image = imagecreatetruecolor($width, $height);
-
-        // Colores
-        $backgroundColor = imagecolorallocate($image, 255, 255, 255); // Fondo blanco
-        $barColor = imagecolorallocate($image, 0, 0, 255); // Barras azules
-        $fontColor = imagecolorallocate($image, 0, 0, 0); // Texto negro
-
-        // Rellenar fondo de la imagen
-        imagefilledrectangle($image, 0, 0, $width, $height, $backgroundColor);
-
-        // Calcular dimensiones del gráfico
-        $totalBars = count($data);
-        $barWidth = ($width - 2 * $padding) / $totalBars;
-
-        // Calcular el valor máximo para ajustar la altura de las barras
-        $maxValue = max(array_column($data, 'total'));
-
-        // Dibujar barras y etiquetas
-        foreach ($data as $index => $item) {
-            $x1 = $padding + $index * $barWidth;
-            $x2 = $x1 + $barWidth - 1;
-            $y1 = $height - $padding;
-            $y2 = $y1 - ($item['total'] / $maxValue) * ($height - 2 * $padding);
-            imagefilledrectangle($image, $x1, $y2, $x2, $y1, $barColor);
-            imagestring($image, 3, $x1 + ($barWidth / 2) - 10, $y1 + 5, $item['year'], $fontColor);
-        }
-
-        // Generar imagen PNG y obtener su contenido
-        ob_start();
-        imagepng($image);
-        $imageData = ob_get_clean();
-
-        // Liberar memoria
-        imagedestroy($image);
-
-        // Crear objeto de respuesta y establecer el contenido y encabezado
-        $response = Response::make($imageData);
-        $response->header('Content-Type', 'image/png');
-
-        return $response;
-       
-    }*/
-
-    /*
-    public function index(Request $request)
-    {
-        
-        // Datos del gráfico
-        $data = [
-            ['year' => 2019, 'total' => 100],
-            ['year' => 2020, 'total' => 150],
-            ['year' => 2021, 'total' => 200],
-        ];
-
-        // Configuración del gráfico
-        $width = 400;
-        $height = 300;
-        $padding = 20;
-
-        // Crear imagen en blanco
-        $image = imagecreatetruecolor($width, $height);
-
-        // Colores
-        $backgroundColor = imagecolorallocate($image, 255, 255, 255); // Fondo blanco
-        $barColor = imagecolorallocate($image, 0, 0, 255); // Barras azules
-        $fontColor = imagecolorallocate($image, 0, 0, 0); // Texto negro
-
-        // Rellenar fondo de la imagen
-        imagefilledrectangle($image, 0, 0, $width, $height, $backgroundColor);
-
-        // Calcular dimensiones del gráfico
-        $totalBars = count($data);
-        $barWidth = ($width - 2 * $padding) / $totalBars;
-
-        // Calcular el valor máximo para ajustar la altura de las barras
-        $maxValue = max(array_column($data, 'total'));
-
-        // Dibujar barras y etiquetas
-        foreach ($data as $index => $item) {
-            $x1 = $padding + $index * $barWidth;
-            $x2 = $x1 + $barWidth - 1;
-            $y1 = $height - $padding;
-            $y2 = $y1 - ($item['total'] / $maxValue) * ($height - 2 * $padding);
-            imagefilledrectangle($image, $x1, $y2, $x2, $y1, $barColor);
-            imagestring($image, 3, $x1 + ($barWidth / 2) - 10, $y1 + 5, $item['year'], $fontColor);
-        }
-
-        // Generar imagen PNG y obtener su contenido
-        ob_start();
-        imagepng($image);
-        $imageData = ob_get_clean();
-
-        // Liberar memoria
-        imagedestroy($image);
-
-        // Guardar la imagen en una ubicación temporal
-        $imagePath = storage_path('app/public/temporal.png');
-        imagepng($image, $imagePath);
-
-        // Obtener el contenido de la imagen
-        $imageData = file_get_contents($imagePath);
-
-        // Eliminar la imagen temporal
-        unlink($imagePath);
-
-        // Crear una instancia de Illuminate\Http\Response con el contenido de la imagen y el encabezado adecuado
-        $response = Response::make($imageData,200);
-        $response->header('Content-Type', 'image/png');
-
-        // Retornar la respuesta de la API con la imagen
-        return $response;
-    }*/
 
     //gráfico de barras utilizando la biblioteca GD
     public function stock_barras($company_id)
@@ -209,7 +78,7 @@ class graficosController extends Controller
     {
 
         $start = [$ano . '-01-01', $ano . '-02-01', $ano . '-03-01', $ano . '-04-01', $ano . '-05-01', $ano . '-06-01'];
-        $end   = [$ano . '-01-31', $ano . '-02-28', $ano . '-03-31', $ano . '-04-31', $ano . '-05-31', $ano . '-06-31'];
+        $end   = [$ano . '-01-31', $ano . '-02-28', $ano . '-03-31', $ano . '-04-30', $ano . '-05-31', $ano . '-06-30'];
         $mes   = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'];
 
         $data = array();
@@ -295,7 +164,7 @@ class graficosController extends Controller
     {
 
         $start = [$ano . '-07-01', $ano . '-08-01', $ano . '-09-01', $ano . '-10-01', $ano . '-11-01', $ano . '-12-01'];
-        $end   = [$ano . '-07-31', $ano . '-08-31', $ano . '-09-31', $ano . '-10-31', $ano . '-11-31', $ano . '-12-31'];
+        $end   = [$ano . '-07-31', $ano . '-08-31', $ano . '-09-30', $ano . '-10-31', $ano . '-11-30', $ano . '-12-31'];
         $mes   = ['Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
         $data = array();
@@ -445,7 +314,7 @@ class graficosController extends Controller
     {
 
         $start = [$ano . '-01-01', $ano . '-02-01', $ano . '-03-01', $ano . '-04-01', $ano . '-05-01', $ano . '-06-01'];
-        $end   = [$ano . '-01-31', $ano . '-02-31', $ano . '-03-31', $ano . '-04-31', $ano . '-05-31', $ano . '-06-31'];
+        $end   = [$ano . '-01-31', $ano . '-02-28', $ano . '-03-31', $ano . '-04-30', $ano . '-05-31', $ano . '-06-30'];
         $mes   = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'];
 
         $data = array();
@@ -538,7 +407,7 @@ class graficosController extends Controller
     {
 
         $start = [$ano . '-07-01', $ano . '-08-01', $ano . '-09-01', $ano . '-10-01', $ano . '-11-01', $ano . '-12-01'];
-        $end   = [$ano . '-07-31', $ano . '-08-31', $ano . '-09-31', $ano . '-10-31', $ano . '-11-31', $ano . '-12-31'];
+        $end   = [$ano . '-07-31', $ano . '-08-31', $ano . '-09-30', $ano . '-10-31', $ano . '-11-30', $ano . '-12-31'];
         $mes   = ['Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
         $data = array();
