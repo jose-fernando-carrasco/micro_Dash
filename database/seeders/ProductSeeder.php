@@ -61,7 +61,7 @@ class ProductSeeder extends Seeder
             'name' => 'Lamb',
             'cod' => '4157094700968',
             'price' => 100.62,
-            'amount' => 500,
+            'amount' => 130,
             'sale_price' => 130.45,
             'company_id' => 1
         ]);
@@ -70,7 +70,7 @@ class ProductSeeder extends Seeder
             'name' => 'Tea',
             'cod' => '1123777462728',
             'price' => 76.50,
-            'amount' => 500,
+            'amount' => 423,
             'sale_price' => 89.70,
             'company_id' => 1
         ]);
@@ -79,7 +79,7 @@ class ProductSeeder extends Seeder
             'name' => 'Cheese',
             'cod' => '2656830670498',
             'price' => 120.60,
-            'amount' => 500,
+            'amount' => 705,
             'sale_price' => 140.50,
             'company_id' => 1
         ]);
@@ -88,7 +88,7 @@ class ProductSeeder extends Seeder
             'name' => 'Steam',
             'cod' => '1894689791181',
             'price' => 69.99,
-            'amount' => 500,
+            'amount' => 190,
             'sale_price' => 90.30,
             'company_id' => 1
         ]);
@@ -97,7 +97,7 @@ class ProductSeeder extends Seeder
             'name' => 'Puree',
             'cod' => '2367547451025',
             'price' => 200.50,
-            'amount' => 500,
+            'amount' => 457,
             'sale_price' => 250.67,
             'company_id' => 1
         ]);
@@ -106,7 +106,7 @@ class ProductSeeder extends Seeder
             'name' => 'Peeled',
             'cod' => '8608522825964',
             'price' => 158.4,
-            'amount' => 500,
+            'amount' => 368,
             'sale_price' => 178.90,
             'company_id' => 1
         ]);
