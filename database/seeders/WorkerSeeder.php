@@ -25,6 +25,39 @@ class WorkerSeeder extends Seeder
             ]);
         }
 
+        Worker::create([
+            'cod' => '4372666505625',
+            'name' => 'Juan'
+        ]);
+        Worker::create([
+            'cod' => '6407405411573',
+            'name' => 'Maria'
+        ]);
+        Worker::create([
+            'cod' => '4157094700968',
+            'name' => 'Carlos'
+        ]);
+        Worker::create([
+            'cod' => '1123777462728',
+            'name' => 'Ana'
+        ]);
+        Worker::create([
+            'cod' => '2656830670498',
+            'name' => 'Luis'
+        ]);
+        Worker::create([
+            'cod' => '1894689791181',
+            'name' => 'Laura'
+        ]);
+        Worker::create([
+            'cod' => '2367547451025',
+            'name' => 'Jose'
+        ]);
+        Worker::create([
+            'cod' => '8608522825964',
+            'name' => 'Andrea'
+        ]);
+
         
     }
 }

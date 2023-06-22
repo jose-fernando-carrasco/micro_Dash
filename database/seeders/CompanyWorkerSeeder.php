@@ -15,17 +15,24 @@ class CompanyWorkerSeeder extends Seeder
     public function run()
     {
 
-        $j = 0;
-        for ($i = 1; $i <=10; $i++) {//empresas
-            $j++;
+        // $j = 0;
+        // for ($i = 1; $i <=10; $i++) {//empresas
+        //     $j++;
+        //     CompanyWorker::create([
+        //         'worker_id' => $j,
+        //         'company_id' => $i
+        //     ]);
+        //     $j++;
+        //     CompanyWorker::create([
+        //         'worker_id' => $j,
+        //         'company_id' => $i
+        //     ]);
+        // }
+
+        for ($i = 1; $i <= 8; $i++) {
             CompanyWorker::create([
-                'worker_id' => $j,
-                'company_id' => $i
-            ]);
-            $j++;
-            CompanyWorker::create([
-                'worker_id' => $j,
-                'company_id' => $i
+                'worker_id' => $i,
+                'company_id' => 1
             ]);
         }
         

@@ -14,11 +14,15 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        
-        $empresas = ['Acme Corporation','XYZ Industries','Smith & Co','Global Enterprises','MegaCorp Ltd','Innovative Solutions','Elite Services','Summit Group','Prime Manufacturing','Visionary Technologies'];
-        for ($i = 0; $i < count($empresas); $i++) {
-            Company::create([ 'name' => $empresas[$i] ]);
-        }
+
+        // $empresas = ['Acme Corporation','XYZ Industries','Smith & Co','Global Enterprises','MegaCorp Ltd','Innovative Solutions','Elite Services','Summit Group','Prime Manufacturing','Visionary Technologies'];
+        // for ($i = 0; $i < count($empresas); $i++) {
+        //     Company::create([ 'name' => $empresas[$i] ]);
+        // }
+
+        Company::create([
+            'name' => 'InventorySys'
+        ]);
         
     }
 }

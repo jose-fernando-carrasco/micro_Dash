@@ -209,7 +209,7 @@ class graficosController extends Controller
     {
 
         $start = [$ano . '-01-01', $ano . '-02-01', $ano . '-03-01', $ano . '-04-01', $ano . '-05-01', $ano . '-06-01'];
-        $end   = [$ano . '-01-31', $ano . '-02-31', $ano . '-03-31', $ano . '-04-31', $ano . '-05-31', $ano . '-06-31'];
+        $end   = [$ano . '-01-31', $ano . '-02-28', $ano . '-03-31', $ano . '-04-31', $ano . '-05-31', $ano . '-06-31'];
         $mes   = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'];
 
         $data = array();
